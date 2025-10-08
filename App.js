@@ -19,23 +19,44 @@ class App extends Component {
                 {
                     "name": 'Hulk'
                 }
-            ]
+            ],
+            displayBio: true
         }
 
+        this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+    }
+
+    toggleDisplayBio() {
+        this.setState({
+            displayBio: !this.state.displayBio
+        });
     }
 
     render() {
+
+        const bio = this.state.displayBio ? "Aparece Bio" : "Não Aparece Bio";
+
+        const buttonTitle = this.state.displayBio ? "Não Aparecer" : "Aparecer";
+
         return (
             <div>
                 <Title/>
+                <hr/>
                 <SubTitle/>
+                <hr/>
                 <Description/>
+                <hr/>
                 <Sum/>
+                <hr/>
                 <Bool/>
+                <hr/>
                 <PeoplesName/>
                 <ul>
                     {this.state.data.map((item) => <ListPeople data={item}/>)}
                 </ul>
+                <hr/>
+                <Bio bio={bio}/>
+                <button onClick={this.toggleDisplayBio}>{buttonTitle}</button>
             </div>
         );
     }
@@ -116,6 +137,15 @@ class ListPeople extends Component {
             <ul>
                 <li>{this.props.data.name}</li>
             </ul>
+        );
+    }
+}
+
+class Bio extends Component {
+    render() {
+        return (
+            <h4>{this.props.bio}</h4>
+
         );
     }
 }
