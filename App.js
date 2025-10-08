@@ -40,6 +40,8 @@ class App extends Component {
 
         return (
             <div>
+                <h1> Bem vindo {this.props.name} {this.props.surname}!</h1>
+                <hr/>
                 <Title/>
                 <hr/>
                 <SubTitle/>
@@ -150,5 +152,8 @@ class Bio extends Component {
     }
 }
 
+App.defaultProps = {
+    surname: "Martins dos Santos"
+}
 
 export default App;
