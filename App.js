@@ -21,16 +21,23 @@ class App extends Component {
                     "name": 'Hulk'
                 }
             ],
+            clique: 'Dieisson Martins dos Santos',
             displayBio: true
         }
 
         this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
+
+        this.handleEvent = this.handleEvent.bind(this);
     }
 
     toggleDisplayBio() {
         this.setState({
             displayBio: !this.state.displayBio
         });
+    }
+
+    handleEvent(){
+        console.log(this.props);
     }
 
     render() {
@@ -68,6 +75,10 @@ class App extends Component {
                   propString={this.props.propString}
                   propNumber={this.props.propNumber}
                 />
+                <hr/>
+                <input type ="text" value={this.state.clique} />
+                <button onClick={this.handleEvent}>Clique aqui...</button>
+                <p> Name: { this.props.name }</p>
             </div>
         );
     }
