@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "html-webpack-plugin": "^5.6.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "webpack": "^5.102.1",
@@ -17,9 +19,9 @@
     "webpack-dev-server": "^5.2.2"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "babel-core": "^4.7.16",
     "babel-loader": "^10.0.0",
-    "babel-preset-env": "^1.7.0",
+    "babel-preset-env": "^0.0.0",
     "babel-preset-react": "^6.24.1",
     "babel-webpack-plugin": "^0.1.2"
   }
