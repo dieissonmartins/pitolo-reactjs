@@ -5,10 +5,9 @@ module.exports = {
     entry: './Main.js',
     output: {
         path: path.join(__dirname, '/bundle'),
-        filename: 'index_bundle.js'
+        filename: 'bundle/index_bundle.js'
     },
     devServer: {
-        inline: true,
         port: 8080
     },
     module: {
