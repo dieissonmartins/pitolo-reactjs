@@ -22,12 +22,15 @@ class App extends Component {
                 }
             ],
             clique: 'Dieisson Martins dos Santos',
-            displayBio: true
+            displayBio: true,
+            msg: "Mensagem do estado"
         }
 
         this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
 
         this.handleEvent = this.handleEvent.bind(this);
+
+        this.updateSetState = this.updateSetState.bind(this);
     }
 
     toggleDisplayBio() {
@@ -36,8 +39,14 @@ class App extends Component {
         });
     }
 
-    handleEvent(){
+    handleEvent() {
         console.log(this.props);
+    }
+
+    updateSetState() {
+        this.setState({
+            msg: "Mensagem do estado atualizada"
+        });
     }
 
     render() {
@@ -69,16 +78,19 @@ class App extends Component {
                 <button onClick={this.toggleDisplayBio}>{buttonTitle}</button>
                 <hr/>
                 <PropsTypesC
-                  propArray={this.props.propArray}
-                  propBool={this.props.propBool}
-                  propFunc={this.props.propFunc}
-                  propString={this.props.propString}
-                  propNumber={this.props.propNumber}
+                    propArray={this.props.propArray}
+                    propBool={this.props.propBool}
+                    propFunc={this.props.propFunc}
+                    propString={this.props.propString}
+                    propNumber={this.props.propNumber}
                 />
                 <hr/>
-                <input type ="text" value={this.state.clique} />
+                <input type="text" value={this.state.clique}/>
                 <button onClick={this.handleEvent}>Clique aqui...</button>
-                <p> Name: { this.props.name }</p>
+                <p> Name: {this.props.name}</p>
+                <hr/>
+                <h1>{this.state.msg}</h1>
+                <button onClick={this.updateSetState}>Atualiza State</button>
             </div>
         );
     }
@@ -179,36 +191,36 @@ class PropsTypesC extends Component {
                 <h1>Typos de propiedades</h1>
                 <table>
                     <tbody>
-                        <tr>
-                            <th>Tipo</th>
-                            <th>Valor</th>
-                            <th>É Valido</th>
-                        </tr>
-                        <tr>
-                            <td>Array</td>
-                            <td>{JSON.stringify(this.props.propArray)}</td>
-                            <td>{Array.isArray(this.props.propArray) ? "true" : "false"}</td>
-                        </tr>
-                        <tr>
-                            <td>Boolean</td>
-                            <td>{this.props.propBool ? "true" : "false"}</td>
-                            <td>{typeof this.props.propBool === 'boolean' ? "true" : "false"}</td>
-                        </tr>
-                        <tr>
-                            <td>Function</td>
-                            <td>{this.props.propFunc(5)}</td>
-                            <td>{this.props.propFunc(5) ? "true" : "False"}</td>
-                        </tr>
-                        <tr>
-                            <td>String</td>
-                            <td>{this.props.propString}</td>
-                            <td>{this.props.propString ? "true" : "False"}</td>
-                        </tr>
-                        <tr>
-                            <td>Number</td>
-                            <td>{this.props.propNumber}</td>
-                            <td>{this.props.propNumber ? "true" : "False"}</td>
-                        </tr>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>É Valido</th>
+                    </tr>
+                    <tr>
+                        <td>Array</td>
+                        <td>{JSON.stringify(this.props.propArray)}</td>
+                        <td>{Array.isArray(this.props.propArray) ? "true" : "false"}</td>
+                    </tr>
+                    <tr>
+                        <td>Boolean</td>
+                        <td>{this.props.propBool ? "true" : "false"}</td>
+                        <td>{typeof this.props.propBool === 'boolean' ? "true" : "false"}</td>
+                    </tr>
+                    <tr>
+                        <td>Function</td>
+                        <td>{this.props.propFunc(5)}</td>
+                        <td>{this.props.propFunc(5) ? "true" : "False"}</td>
+                    </tr>
+                    <tr>
+                        <td>String</td>
+                        <td>{this.props.propString}</td>
+                        <td>{this.props.propString ? "true" : "False"}</td>
+                    </tr>
+                    <tr>
+                        <td>Number</td>
+                        <td>{this.props.propNumber}</td>
+                        <td>{this.props.propNumber ? "true" : "False"}</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
