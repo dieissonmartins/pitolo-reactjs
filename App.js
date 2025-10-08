@@ -1,6 +1,29 @@
 import React, {Component} from 'react';
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            data: [
+                {
+                    "name": 'Dieisson'
+                },
+                {
+                    "name": 'Maria'
+                },
+                {
+                    "name": 'João'
+                },
+                {
+                    "name": 'Hulk'
+                }
+            ]
+        }
+
+    }
+
     render() {
         return (
             <div>
@@ -9,6 +32,10 @@ class App extends Component {
                 <Description/>
                 <Sum/>
                 <Bool/>
+                <PeoplesName/>
+                <ul>
+                    {this.state.data.map((item) => <ListPeople data={item}/>)}
+                </ul>
             </div>
         );
     }
@@ -72,5 +99,26 @@ class Bool extends Component {
         );
     }
 }
+
+class PeoplesName extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Lista de pessoas</h1>
+            </div>
+        );
+    }
+}
+
+class ListPeople extends Component {
+    render() {
+        return (
+            <ul>
+                <li>{this.props.data.name}</li>
+            </ul>
+        );
+    }
+}
+
 
 export default App;
