@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 
@@ -59,6 +60,14 @@ class App extends Component {
                 <hr/>
                 <Bio bio={bio}/>
                 <button onClick={this.toggleDisplayBio}>{buttonTitle}</button>
+                <hr/>
+                <PropsTypesC
+                  propArray={this.props.propArray}
+                  propBool={this.props.propBool}
+                  propFunc={this.props.propFunc}
+                  propString={this.props.propString}
+                  propNumber={this.props.propNumber}
+                />
             </div>
         );
     }
@@ -152,8 +161,67 @@ class Bio extends Component {
     }
 }
 
+class PropsTypesC extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Typos de propiedades</h1>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>É Valido</th>
+                        </tr>
+                        <tr>
+                            <td>Array</td>
+                            <td>{JSON.stringify(this.props.propArray)}</td>
+                            <td>{Array.isArray(this.props.propArray) ? "true" : "false"}</td>
+                        </tr>
+                        <tr>
+                            <td>Boolean</td>
+                            <td>{this.props.propBool ? "true" : "false"}</td>
+                            <td>{typeof this.props.propBool === 'boolean' ? "true" : "false"}</td>
+                        </tr>
+                        <tr>
+                            <td>Function</td>
+                            <td>{this.props.propFunc(5)}</td>
+                            <td>{this.props.propFunc(5) ? "true" : "False"}</td>
+                        </tr>
+                        <tr>
+                            <td>String</td>
+                            <td>{this.props.propString}</td>
+                            <td>{this.props.propString ? "true" : "False"}</td>
+                        </tr>
+                        <tr>
+                            <td>Number</td>
+                            <td>{this.props.propNumber}</td>
+                            <td>{this.props.propNumber ? "true" : "False"}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        );
+    }
+}
+
+App.propTypes = {
+    propArray: PropTypes.array.isRequired,
+    propBool: PropTypes.bool.isRequired,
+    propFunc: PropTypes.func,
+    propNumber: PropTypes.number,
+    propString: PropTypes.string,
+};
+
 App.defaultProps = {
-    surname: "Martins dos Santos"
+    surname: "Martins dos Santos",
+    propArray: [1, 2, 3, 4, 5],
+    propBool: true,
+    propFunc: function (x) {
+        return x + 5
+    },
+    propNumber: 1,
+    propString: "JavaTpoint"
 }
 
 export default App;
