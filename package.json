@@ -15,12 +15,13 @@
     "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
   },
   "devDependencies": {
-    "babel-core": "^4.7.16",
+    "babel-core": "^6.26.3",
     "babel-loader": "^10.0.0",
     "babel-preset-env": "^0.0.0",
     "babel-preset-react": "^6.24.1",
