@@ -10,6 +10,8 @@ const routing = (
     <Router>
         <div>
             <h1>Projeto Rotas</h1>
+            <h1 style={{color: "Green"}}>Verde</h1>
+            <p style={{backgroundColor: "lightgreen"}}>Cor de Bundo</p>
             <ul>
                 <li>
                     <NavLink to="/" exact activeStyle={{color: 'red'}}>

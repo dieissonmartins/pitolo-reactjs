@@ -1,10 +1,19 @@
 import React from 'react'
+import 'App.css';
 
 class App extends React.Component {
     render() {
+
+        const mystyle = {
+            color: "Green",
+            backgroundColor: "lightBlue",
+            padding: "10px",
+            fontFamily: "Arial"
+        };
+
         return (
             <div>
-                <h1>Painel</h1>
+                <h1 style={mystyle}>Painel</h1>
             </div>
         )
     }
