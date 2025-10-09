@@ -49,4 +49,4 @@ const routing = (
 );
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(<ThemeSwitcher />, routing);
+root.render(routing);
