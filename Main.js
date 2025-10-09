@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router, Link, Routes, Route, NavLink} from 'react-router-dom';
@@ -5,6 +6,8 @@ import App from './App';
 import About from './About';
 import Contact from './Contact';
 import Notfound from "./notfound";
+import BootstrapTest from "./BootstrapTest";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const routing = (
     <Router>
@@ -28,11 +31,17 @@ const routing = (
                         Contato
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/bootstrap" exact activeStyle={{color: 'red'}}>
+                        Bootstrap
+                    </NavLink>
+                </li>
             </ul>
             <Routes>
                 <Route path="/" element={<App/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/contact" element={<Contact/>}/>
+                <Route path="/bootstrap" element={<BootstrapTest/>}/>
                 <Route component={Notfound} />
             </Routes>
         </div>
@@ -40,4 +49,4 @@ const routing = (
 );
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
-root.render(routing);
+root.render(<ThemeSwitcher />, routing);
