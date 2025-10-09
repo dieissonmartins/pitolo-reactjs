@@ -31,6 +31,10 @@ class App extends Component {
         this.handleEvent = this.handleEvent.bind(this);
 
         this.updateSetState = this.updateSetState.bind(this);
+
+        this.updateSubmit = this.updateSubmit.bind(this);
+
+        this.input = React.createRef();
     }
 
     toggleDisplayBio() {
@@ -47,6 +51,11 @@ class App extends Component {
         this.setState({
             msg: "Mensagem do estado atualizada"
         });
+    }
+
+    updateSubmit(event) {
+        alert('Cadastro realizado com sucesso!');
+        event.preventDefault();
     }
 
     render() {
@@ -91,6 +100,19 @@ class App extends Component {
                 <hr/>
                 <h1>{this.state.msg}</h1>
                 <button onClick={this.updateSetState}>Atualiza State</button>
+                <hr/>
+                <h3>Formulário</h3>
+                <form onSubmit={this.updateSubmit}>
+                    <h1>Cadastro handle</h1>
+                    <label>Nome:
+                        <input type="text" ref={this.input}/>
+                    </label>
+                    <label>
+                        Sobrenome:
+                        <input type="text" ref={this.input}/>
+                    </label>
+                    <input type="submit" value="Submit"/>
+                </form>
             </div>
         );
     }
