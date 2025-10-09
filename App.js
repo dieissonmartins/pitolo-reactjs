@@ -23,7 +23,8 @@ class App extends Component {
             ],
             clique: 'Dieisson Martins dos Santos',
             displayBio: true,
-            msg: "Mensagem do estado"
+            msg: "Mensagem do estado",
+            companyName: ''
         }
 
         this.toggleDisplayBio = this.toggleDisplayBio.bind(this);
@@ -56,6 +57,12 @@ class App extends Component {
     updateSubmit(event) {
         alert('Cadastro realizado com sucesso!');
         event.preventDefault();
+    }
+
+    changeText(event) {
+        this.setState({
+            companyName: event.target.value
+        });
     }
 
     render() {
@@ -113,6 +120,11 @@ class App extends Component {
                     </label>
                     <input type="submit" value="Submit"/>
                 </form>
+                <hr/>
+                <h2>Evento simples</h2>
+                <label htmlFor="name">Digite nome: </label>
+                <input type="text" id="companyName" onChange={this.changeText.bind(this)}/>
+                <h4>Digitado: {this.state.companyName}</h4>
             </div>
         );
     }
